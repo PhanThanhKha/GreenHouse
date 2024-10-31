@@ -1,0 +1,582 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    min-width: 1500px;
+    padding: 50px;  /*top right bottom left = 50px*/   
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("./images/pc.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s ease;
+}
+
+img {
+    width: 100%;
+    border-radius:10%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+}
+
+.wrapper {
+    display: flex;
+    width: 1200px;
+    min-width: 900px;
+    border-radius: 20px;
+    overflow: hidden;
+
+  }
+
+
+
+.main {
+    width: 100%;
+    padding: 20px 40px 20px 20px;
+    /* background-color: #f6f6f8; */
+    background: linear-gradient(90deg, rgba(43, 176, 238,0.95),rgba(235, 42, 74,0.5));
+    position: relative;
+    padding-bottom: 90px;
+}
+
+.main nav {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.main h1 {
+    position: absolute;
+    top: 30px;
+    font-size: 35px;
+}
+.main .option-search {   
+    position: absolute;
+    left: 400px;
+    width: 400px;
+    height: 35px;
+    
+    display: flex;
+    align-items: center;
+}
+
+ .search-box {
+    position: relative;  
+    width: 100%;
+    height: 30px;
+    background: rgba(192,192,192,0.2);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+  } 
+  
+ 
+  
+   .search-box input {
+    position: absolute;  
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2); 
+
+    outline: none;
+    border-radius: 10px;
+    
+    font-size: 22px;
+    
+    color: gainsboro;
+
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0 48px 0 42px;  
+  }
+  
+   .search-box input::placeholder {
+    font-size: 18px;
+
+    color: gainsboro;
+
+    text-transform: capitalize;
+  }
+ 
+  .search-box button {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    color: gainsboro;
+    padding: 0 40px 0 5px;
+    cursor: pointer;
+  }  
+
+
+.main .logo-hcmute { 
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    height: 100px;
+    
+    
+    width: 7%;
+}
+/* .thingspeak-temperature {
+    position: absolute;
+    left: 40px;
+    font-size: 10px;
+    top: 400px;
+    
+}
+
+.thingspeak-humidity {
+    position: absolute;
+    font-size: 10px;
+    left: 370px;
+    top: 400px;
+} */
+
+.chart {
+    position: absolute;  
+    left: 55px;
+    top: 390px; 
+    width: 600px;
+    height: 320px;
+    
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+.chart #myChart {
+    position: absolute;
+    top: 2px;
+    font-size: 1px;
+    width: 30px;
+    height: 30px;
+}
+
+.main .sensor-screen {
+    position: absolute;  
+    left: 55px;
+    top: 120px; 
+    width: 600px;
+    height: 250px;
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+
+
+.sensor-screen p {
+    position: absolute;
+    top: 10px;
+    left: 15px;    
+    font-size: 24px;
+    color: gainsboro;
+}
+
+.sensor-screen .cr7 {
+    position: absolute;
+    left: 15px;
+    top: 45px;
+    font-size: 34px;
+    color: gainsboro;
+
+}
+
+.sensor-screen #time-day {
+    position: absolute;
+    left: 25px; 
+    top: 110px;  
+    color: gainsboro;
+    font-size: 25px;
+
+
+}
+
+.sensor-screen #time-month {
+    position: absolute;
+    left: 55px; 
+    top: 110px; 
+    font-size: 25px;
+    color: gainsboro;
+
+}
+
+.control-monitor #thoigian {
+    position: absolute;
+    top: 70px;
+    left: 130px;
+}
+
+.sensor-screen i {
+    position: absolute;
+    font-size: 100px;
+    right: 10px;
+}
+
+.sensor-screen #nhietdo {
+    position: absolute;
+    top: 175px;
+    left: 65px;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.sensor-screen #gach-doc {
+    position: absolute;
+    top: 150px;
+    left: 170px;
+    font-size: 55px;
+    color: aliceblue;
+}
+
+
+
+.sensor-screen #doam {
+    position: absolute;
+    top: 175px;
+    left: 250px;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.sensor-screen #gach-doc1 {
+    position: absolute;
+    top: 150px;
+    left: 323px;
+    font-size: 55px;
+    color: aliceblue;
+}
+
+
+
+.sensor-screen #doamdat {
+    position: absolute;
+    top: 175px;
+    left: 405px;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+
+.main .control-monitor {
+    position: absolute;  
+    left: 730px;
+    top: 120px; 
+    right: 55px;
+    width: 400px;
+    height: 250px;
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+
+
+.control-monitor .control-led i  {
+    position: absolute;
+    top: 30px;
+    left: 127px;
+    font-size: 150px;
+}
+
+
+
+
+.control-led,
+.control-fan,
+.not-found,
+.clock.active {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+
+
+.control-led.active,
+.control-fan.active,
+.not-found.active {
+    visibility: visible;
+}
+
+.control-led .toggle-btn1{
+    position: absolute;
+    left: 160px;
+    top: 200px; 
+    width: 80px;
+    height: 40px;
+    background: gray;
+    border-radius: 30px;
+    padding: 5px;
+    /* transition: all 300ms ease-in-out; */
+}
+  .toggle-btn1 > .inner-circle{
+    position: absolute;
+    top: 1px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    /* transition: all 300ms ease-in-out; */
+} 
+
+
+.toggle-btn1.active{
+     background: #21ecf3;
+   box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3;
+}
+
+.toggle-btn1.active> .inner-circle{
+    margin-left: 40px;
+} 
+
+
+.control-monitor .control-fan i  {
+    position: absolute;
+    top: 30px;
+    left: 127px;
+    font-size: 150px;
+}
+
+.control-fan .toggle-btn2{
+    position: absolute;
+    left: 160px;
+    top: 200px; 
+    width: 80px;
+    height: 40px;
+    background: gray;
+    border-radius: 30px;
+    padding: 5px;
+    /* transition: all 300ms ease-in-out; */
+}
+  .toggle-btn2 > .inner-circle{
+    position: absolute;
+    top: 1px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    /* transition: all 300ms ease-in-out; */
+} 
+
+
+.toggle-btn2.active{
+     background: #21ecf3;
+   box-shadow: 0 0 10px #21ecf3, 0 0 40px #21ecf3, 0 0 80px #21ecf3;
+}
+
+.toggle-btn2.active> .inner-circle{
+    margin-left: 40px;
+} 
+
+
+
+.not-found img {
+    position: absolute;
+    top: 12px;
+    left: 75px;
+    width: 60%;
+
+  }
+
+.device-hide {
+    display: none;
+  }
+.led-cr7-select,
+.fan-mu-select {
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.led-cr7-select.active,
+.fan-mu-select.active {
+    visibility: visible;
+}
+
+.quick-control .led-cr7{
+    position: absolute;  
+    top: 1000px; 
+    left: 730px;
+
+    right: 55px;
+    width: 400px;
+    height: 70px;
+
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center; 
+}
+
+.led-cr7 p {
+    position: absolute;
+    left: 150px;
+    top: 1000px;
+    font-size: 30px;
+}
+
+.led-cr7-select {
+    position: absolute;  
+    top: 1000px; 
+    left: 730px;
+
+    right: 55px;
+    width: 400px;
+    height: 70px;
+
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: linear-gradient(90deg, rgba(43, 176, 238,0.95),rgba(235, 42, 74,0.5));
+
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center; 
+}
+.led-cr7-select p {
+    position: absolute;
+    left: 150px;
+    top: 1000px;
+    font-size: 30px;
+}
+.quick-control .fan-mu{
+    position: absolute;  
+    left: 730px;
+
+    top: 1000px; 
+    right: 55px;
+    width: 400px;
+    height: 70px;
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+.fan-mu p {
+    position: absolute;
+    left: 165px;
+    top: 1000px;
+    font-size: 30px;
+}
+
+.fan-mu-select {
+    position: absolute;  
+    left: 730px;
+
+    top: 1000px; 
+    right: 55px;
+    width: 400px;
+    height: 70px;
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: linear-gradient(90deg, rgba(43, 176, 238,0.95),rgba(235, 42, 74,0.5));
+
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+.fan-mu-select p {
+    position: absolute;
+    left: 160px;
+    top: 1000px;
+    font-size: 30px;
+}
+
+.quick-control .alert-fire{
+    position: absolute; 
+     
+    top: 410px; 
+    right: 55px;
+    left: 730px;
+
+    width: 400px;
+    height: 80px;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+.quick-control .alert-rain{
+    position: absolute; 
+     
+    top: 510px; 
+    right: 55px;
+    left: 730px;
+
+    width: 400px;
+    height: 80px;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+.quick-control .member{
+    position: absolute; 
+     
+    top: 625px; 
+    right: 55px;
+    left: 730px;
+
+    width: 400px;
+    height: 80px;
+
+    /* background: linear-gradient(45deg, rgba(hsl(207, 90%, 54%),0,0,1), rgba(hsl(340, 82%, 52%),0,0,1)) ; */
+    /* background: linear-gradient(45deg, rgba(43, 176, 238,0.9),rgb(235, 42, 74,0.8)) ; */
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(30px);
+    border-radius: 22px;
+    color: #fff;
+    
+    align-items: center;
+}
+
+
+/* -----------------------------------------------sign-------------------------------------------------- */
+
+

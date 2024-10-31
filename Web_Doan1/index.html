@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>GREENHOUSE</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-analytics.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- lien ket voi functions.js -->   
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+</head>
+<body onload="hienThiThoiGian()">
+    
+   
+
+    <div class="wrapper">
+       
+        <div class="main">
+            <nav>  
+                <h1>Welcome!</h1>
+
+                <div class="option-search">
+                    <div class="search-box">
+                        <input type="text" placeholder="search">
+                        <button class = "bx bx-search"></button>
+                        
+                    </div>
+                </div>
+                <div class="logo-hcmute">
+                    <img src="images/hcmute.jpg"  >
+                </div>
+          </nav> 
+
+          <div class = "chart">
+            <div>
+                <canvas id="myChart" ></canvas>
+            </div>
+          </div>
+          <div class = "sensor-screen">
+            
+            <i class='bx bxs-cloud' style="color: aliceblue;"></i>
+            <p>Welcome GREENHOUSE,</p>
+            <p class="cr7">MRS.TRAN THI QUYNH NHU !<p>
+            <p id="time-day"></p>
+            <p id="time-month"></p>
+            <i class='bx bxs-thermometer' style="position: absolute; top:160px; left: 10px ;font-size:60px ;color: aliceblue;"></i>
+            <p id ="nhietdo"></p>
+            <p id = "gach-doc">|</p>
+            <i class='bx bxs-droplet' style="position: absolute; top:160px; left: 190px ;font-size:60px ;color: aliceblue;"></i>
+            <p id = "doam"></p>
+            <p id = "gach-doc1">|</p>
+            <i class='bx bxs-flame' style="position: absolute; top:160px; left: 345px ;font-size:60px ;color: aliceblue;"></i>
+            <p id = "doamdat"></p>
+          </div>
+
+         
+          <div class = "control-monitor">
+            <div class = "clock">
+                <i class='bx bx-desktop' style="position: absolute; font-size: 250px; left: 70px; " ></i>
+                <h1 id = "thoigian"></h1>
+
+            </div>
+            
+            <p class = device-hide >device hide</p>
+
+            <div class = "control-led">
+                <i class='bx bx-shower' style="font-size: 150px;"></i>
+                
+                <p style="position:absolute; left: 60px; font-size: 25px;">
+                    ĐIỀU KHIỂN BƠM NƯỚC
+                </p>
+                <div class = "button1">
+                    <div class = "toggle-btn1" id ="unact1">
+                        <div class = "inner-circle"></div>
+                    </div>
+    
+                    <div class = "toggle-btn1 active" id ="act1">
+                        <div class = inner-circle></div>
+                    </div>
+    
+                </div>
+            </div>
+
+            <div class = "control-fan">
+                <i class='bx bxs-bulb'></i>
+                <p style="position:absolute; left: 100px; font-size: 25px; color: whitesmoke;">
+                    ĐIỀU KHIỂN ĐÈN
+                </p>
+                <div class = "button2">
+                    <div class = "toggle-btn2" id ="unact2">
+                        <div class = "inner-circle"></div>
+                    </div>
+    
+                    <div class = "toggle-btn2 active" id ="act2">
+                        <div class = inner-circle></div>
+                    </div>
+    
+                </div>
+            </div>
+            
+            <div class="not-found">
+                <div class="box">
+                    <img src="images/404.png" >
+                    <p style="position: absolute; font-size: 20px ; top: 200px; left: 35px;">Oop! Your selection is not found!</p>
+                </div>
+            </div>
+
+          </div>
+
+          <div class = "quick-control">
+
+            <h1 style="position: absolute; top: 380px; font-size: 22px; left: 760px; font-weight: bold;">Alert</h1>
+            <h1 style="position: absolute; top: 597px; font-size: 22px; left: 760px;font-weight: bold;">Members</h1>
+
+            <div class = "led-cr7">
+                <i class='bx bxs-bulb' style="   
+                position: absolute;
+                left: 30px;
+                top: 5px;
+                font-size: 60px;">
+                </i>
+                <i class='bx bxs-bulb' style="   
+                position: absolute;
+                right: 30px;
+                top: 5px;
+                font-size: 60px;">
+                </i>
+                <p>Lamp</p>
+            </div>
+            
+           
+            <div class = "fan-mu">
+                <i class='bx bxs-radiation'style="   
+                position: absolute;
+                left: 30px;
+                top: 5px;
+                font-size: 60px;"></i>
+                <i class='bx bxs-radiation'style="   
+                position: absolute;
+                right: 30px;
+                top: 5px;
+                font-size: 60px;"></i>
+                <p>Fan</p>
+            </div>
+
+            <div class ="alert-fire">
+                <p style="position: absolute; font-size: 25px ; top: 20px; left: 105px;" >Cảnh báo cháy </p>
+            </div>
+
+            <div class ="alert-rain">
+                <p style="position: absolute; font-size: 25px ; top: 20px; left: 90px;" >Nhắc nhở tưới cây </p>
+            </div>
+
+            
+
+            <div class = "led-cr7-select" >
+                <i class='bx bxs-bulb' style="   
+                position: absolute;
+                left: 30px;
+                top: 5px;
+                font-size: 60px;">
+                </i>
+                <i class='bx bxs-bulb' style="   
+                position: absolute;
+                right: 30px;
+                top: 5px;
+                font-size: 60px;">
+                </i>
+                <p style="cursor: pointer;">Lamp</p>
+            </div>
+
+            <div class = "fan-mu-select">
+                <i class='bx bxs-radiation'style="   
+                position: absolute;
+                left: 30px;
+                top: 5px;
+                font-size: 60px;"></i>
+                <i class='bx bxs-radiation'style="   
+                position: absolute;
+                right: 30px;
+                top: 5px;
+                font-size: 60px;"></i>
+                <p>Fan</p>
+            </div>
+
+            <div class ="member">
+                <i class='bx bxs-user' style="   
+                position: absolute;
+                left: 30px;
+                top: 5px;
+                font-size: 30px;">
+                </i>
+                <p style="position: absolute; font-size: 20px ; top: 9px; left: 70px;">Phan Phú Quý - 20119273 </p>
+                <i class='bx bxs-user' style="   
+                position: absolute;
+                left: 30px;
+                top: 40px;
+                font-size: 30px;">
+                </i>
+                <p style="position: absolute; font-size: 20px ; top: 44px; left: 70px;">Phan Thanh Kha - 21119087</p>
+            </div>
+
+          </div>
+       </div>
+
+       
+            
+    </div>
+
+    
+    <script src="script.js"></script>
+
+</body>
